@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151820">
+  <meta name="description" content="Una pequeña historia interactiva sobre acompañar, respetar los tiempos y hacer espacio para el cariño.">
+  <title>A tu ritmo · Una pequeña historia</title>
+  <link rel="icon" href="assets/flor.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-step="0">
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="./index.html" aria-label="A tu ritmo, inicio">
+        <img src="assets/flor.svg" alt="" width="30" height="30">
+        <span>Un friki Espina<span class="brand-dot">.</span></span>
+      </a>
+      <span class="header-note">Mocca Dev</span>
+      <button id="sound-button" class="icon-button" type="button" aria-pressed="false" aria-label="Activar sonido ambiental" title="Activar sonido ambiental">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path class="sound-waves" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/><path class="sound-off" d="m16 9 6 6m0-6-6 6"/></svg>
+        <span id="sound-label">Sonido apagado</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow"><span></span> UNA PEQUEÑA HISTORIA INTERACTIVA</p>
+          <h1 id="page-title">Hasta entre espinas,<br>puede crecer <em>algo bonito.</em></h1>
+        </div>
+        <p class="intro-note">No siempre hacen falta grandes palabras.<br>A veces, basta un pequeño gesto.<span class="handwritten">y un pingüinito</span></p>
+      </section>
+
+      <section class="story-card" aria-label="Historia interactiva">
+        <div class="story-copy">
+          <div class="chapter"><span class="tiny-star" aria-hidden="true">✧</span> <span id="chapter-label">GESTO 01 · ESTAR</span></div>
+          <div class="story-text" aria-live="polite" aria-atomic="true">
+            <p class="story-kicker" id="story-kicker">No tienes que decir nada.</p>
+            <h2 id="story-title">Puedo quedarme<br>un ratito aquí.</h2>
+            <p id="story-description">A veces levantamos espinas para cuidar lo que sentimos. Acercarse también puede ser hacerlo despacito.</p>
+          </div>
+          <button class="primary-button" id="next-button" type="button"><span id="next-label">Presiona para continuar</span><span aria-hidden="true">↗</span></button>
+          <p class="interaction-hint" id="interaction-hint">Tú eliges cuándo dar el siguiente paso.</p>
+          <div class="progress" aria-label="Progreso de la historia">
+            <span class="progress-dot active" aria-current="step" aria-label="Gesto 1 de 4"></span>
+            <span class="progress-dot" aria-label="Gesto 2 de 4"></span>
+            <span class="progress-dot" aria-label="Gesto 3 de 4"></span>
+            <span class="progress-dot" aria-label="Gesto 4 de 4"></span>
+            <span id="progress-number" aria-hidden="true">01 / 04</span>
+          </div>
+        </div>
+
+        <div class="scene-wrap">
+          <div class="scene-label"><span class="status-light"></span><span id="scene-label">UN LUGAR PARA EMPEZAR</span></div>
+          <svg class="scene" id="scene" viewBox="0 0 900 610" role="img" aria-labelledby="scene-title scene-description">
+            <title id="scene-title">Un pequeño gesto de compañía</title>
+            <desc id="scene-description">Una joven está sentada dentro de una esfera de espinas. Al lado, un chico sostiene un pingüino. La escena cambia al avanzar en la historia.</desc>
+            <defs>
+              <radialGradient id="scene-glow"><stop stop-color="#bca3df" stop-opacity=".2"/><stop offset="1" stop-color="#807397" stop-opacity="0"/></radialGradient>
+              <radialGradient id="warm-glow"><stop stop-color="#ffd0a6" stop-opacity=".45"/><stop offset=".5" stop-color="#e4aaad" stop-opacity=".15"/><stop offset="1" stop-color="#e4aaad" stop-opacity="0"/></radialGradient>
+              <linearGradient id="sweater" x2=".8" y2="1"><stop stop-color="#c9bdc8"/><stop offset="1" stop-color="#9994aa"/></linearGradient>
+              <linearGradient id="hoodie" x2="1" y2="1"><stop stop-color="#414256"/><stop offset="1" stop-color="#272b3a"/></linearGradient>
+              <linearGradient id="hair" x2="1" y2="1"><stop stop-color="#252330"/><stop offset="1" stop-color="#11141e"/></linearGradient>
+              <linearGradient id="vine-color" x2=".3" y2="1"><stop stop-color="#20232c"/><stop offset=".5" stop-color="#11151e"/><stop offset="1" stop-color="#30303e"/></linearGradient>
+              <filter id="soft-glow"><feGaussianBlur stdDeviation="3"/></filter>
+              <g id="flower-symbol">
+                <ellipse cy="-8" rx="5.5" ry="8" fill="currentColor"/>
+                <ellipse cy="-8" rx="5.5" ry="8" fill="currentColor" transform="rotate(72)"/>
+                <ellipse cy="-8" rx="5.5" ry="8" fill="currentColor" transform="rotate(144)"/>
+                <ellipse cy="-8" rx="5.5" ry="8" fill="currentColor" transform="rotate(216)"/>
+                <ellipse cy="-8" rx="5.5" ry="8" fill="currentColor" transform="rotate(288)"/>
+                <circle r="4.2" fill="#f4d898"/>
+              </g>
+              <g id="penguin-symbol" stroke="#171c29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="-15" cy="36" rx="11" ry="6" fill="#e7b774" transform="rotate(-12 -15 36)"/>
+                <ellipse cx="15" cy="36" rx="11" ry="6" fill="#e7b774" transform="rotate(12 15 36)"/>
+                <path d="M-30 4c-2-28 9-46 30-46S33-24 30 4l-2 20c-7 19-49 19-56 0Z" fill="#283042"/>
+                <path d="M-21-11c3-14 13-15 21-4 8-11 18-10 21 4 9 28-1 43-21 43S-30 17-21-11Z" fill="#f2eee6"/>
+                <path d="M-29 0c-17 7-17 25-11 25 7-1 13-12 14-16M29 0c17 7 17 25 11 25-7-1-13-12-14-16" fill="#283042"/>
+                <ellipse cx="-10" cy="-8" rx="2.3" ry="3.3" fill="#171c29" stroke="none"/>
+                <ellipse cx="10" cy="-8" rx="2.3" ry="3.3" fill="#171c29" stroke="none"/>
+                <path d="m-6 1 6-4 6 4-6 5Z" fill="#e7b774" stroke-width="1.5"/>
+                <ellipse cx="-17" cy="1" rx="5" ry="2.5" fill="#e8b0aa" stroke="none"/>
+                <ellipse cx="17" cy="1" rx="5" ry="2.5" fill="#e8b0aa" stroke="none"/>
+                <path d="M-22 10q22 11 44 0l-1 7q-21 9-42 0Z" fill="#d499af" stroke="none"/>
+                <path d="m12 17 1 17 8-2-3-16" fill="#d499af" stroke="none"/>
+              </g>
+            </defs>
+            <ellipse cx="386" cy="277" rx="370" ry="310" fill="url(#scene-glow)"/>
+            <ellipse class="warm-light" cx="398" cy="290" rx="370" ry="310" fill="url(#warm-glow)"/>
+            <g id="stars" aria-hidden="true"></g>
+            <g class="moon" fill="none" stroke="#c9bfdb" stroke-width="1.2" opacity=".5"><circle cx="751" cy="87" r="23"/><path d="M740 68a23 23 0 0 0 27 34"/><path d="M710 58h8m-4-4v8M792 117h6m-3-3v6"/></g>
+            <path class="ground-line" d="M54 519Q422 495 848 520" fill="none" stroke="#535062" stroke-width="1" opacity=".36"/>
+            <ellipse cx="340" cy="519" rx="206" ry="17" fill="#0b0e18" opacity=".35"/>
+            <ellipse cx="692" cy="532" rx="126" ry="14" fill="#0b0e18" opacity=".28"/>
+            <g id="vines-back" class="vine-group"></g>
+
+            <!-- Ilustración vectorial: cada elemento se puede modificar. -->
+            <g id="girl" class="girl" stroke="#151722" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M273 367c-20-48-12-100 1-139 11-41 66-65 102-42 32 20 44 65 35 112l-28 72Z" fill="url(#hair)"/>
+              <path d="M274 354c-6 37 5 82 26 97 25 17 86 3 107-20 16-16 7-51-14-61Z" fill="#36394b"/>
+              <path d="M337 420c24-40 25-75 40-114 7-19 20-34 39-25 26 12 16 51 8 80l-25 94-61 6Z" fill="#343748"/>
+              <path d="M368 435c18-47 30-94 29-121" fill="none" stroke="#59586b" stroke-width="1.7"/>
+              <path d="M378 449c-9 8-13 22-8 28 9 9 47 1 55-5 7-5 2-11-10-12l-16-8" fill="#d5ced4"/>
+              <path d="M300 440c-9 16-6 32 5 35 16 3 57-4 69-12 4-8-2-12-10-13l-22-4" fill="#c6c0cf"/>
+              <path d="m382 468 13-3m-81-4 14 1" stroke="#a6a0b3" stroke-width="1.5"/>
+              <path d="M299 256c-24 6-46 32-49 64-6 38-1 96 27 118 13 11 35 7 51-10l29-54-13-67Z" fill="url(#sweater)"/>
+              <path d="M278 338c-9 19-11 44-6 59m4 12 12 8m-8-100 5 28" stroke="#7e7d92" stroke-width="1.7" fill="none"/>
+              <path d="M346 234c17 0 35 9 40 26l-8 31c-13 17-30 9-37-9l-11-25Z" fill="#ddbaae"/>
+              <path d="M323 214c-13 26-10 61 15 83-1-28 10-37 22-43 5 11 17 22 28 25l-8-58Z" fill="url(#hair)"/>
+              <path d="M357 294c-6-7-7-20-1-25 4-4 9 1 8 8 3-11 8-11 10-4l2 15 8 9-19 14Z" fill="#ddbaae"/>
+              <path d="M286 290c-20 10-20 43-8 65 12 23 26 39 42 42 17 3 25-15 30-30l23-61-23-15-31 52-9-36" fill="url(#sweater)"/>
+              <path d="m347 302 21 13m-53 34-8 13" stroke="#7e7d92" stroke-width="1.7" fill="none"/>
+              <path d="M277 289c-20 30-25 58-25 76 14-12 23-23 30-36 0 8-1 18-3 25 25-34 40-66 45-94 10-8 24-22 24-38" fill="url(#hair)"/>
+              <path d="M275 312c12-22 20-37 23-57m3 53c10-25 15-41 16-55" fill="none" stroke="#3d3749" stroke-width="1.4"/>
+              <path class="girl-cheek" d="m375 284 5 2" stroke="#edaaa9" stroke-width="4"/>
+            </g>
+            <g id="vines-front" class="vine-group"></g>
+            <g id="flower-vines" aria-hidden="true"></g>
+
+            <g id="boy" class="boy" stroke="#171b28" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M645 436c-26 15-49 46-57 67-8 24 11 39 32 40l71-1 47-31-24-62Z" fill="#252a3a"/>
+              <path d="M677 474c-11 15-19 30-36 37l-29 7" fill="none" stroke="#454457"/>
+              <path d="M691 491c13 4 25 13 25 25 0 10 0 19 10 21 13 2 27-9 32-23 4-13-2-30-12-38l-19-4Z" fill="#b8b6c7"/>
+              <path d="M738 481c12 11 12 28-1 46" fill="none" stroke="#eddee4" stroke-width="5"/>
+              <path d="M638 283c-22 7-41 32-35 62l20 91c34 23 92 31 133 4l-17-65-21-67Z" fill="url(#hoodie)"/>
+              <path d="M624 308c-20 13-52 4-67-13l-32-36-16 14c20 40 36 63 65 73l42 9Z" fill="#35394c"/>
+              <path d="m526 262-9-14-13-18c-5-6-10-4-7 3l10 19-18-13c-6-4-10-1-5 5l18 18-17-6c-7-2-10 2-3 6l21 13 14 3Z" fill="#dfb9aa"/>
+              <path d="M642 208c-16 10-28 34-18 54l25 25 25-20 5-41Z" fill="#dfb9aa"/>
+              <path d="M624 247c-16-9-23-31-20-47l-11 6 12-21-8-1 23-17c11-17 35-26 55-21l21 2-9 5c25 7 34 22 41 35l-12-2c11 13 16 31 8 47l-7-8-8 24-18-4-16 25-8-22-12 3-7-20-7 12-8-23Z" fill="url(#hair)"/>
+              <path d="M647 242c7-8 13-1 9 6" stroke="#ac8c89" stroke-width="1.5" fill="none"/>
+              <path d="M650 271c20-13 32-24 43-19 21 8 37 38 36 50-30 16-62 19-92-3Z" fill="#383c50"/>
+              <path d="M655 278c16-9 28-12 38-7m-61 24c33 6 52 0 65-7" fill="none" stroke="#535165" stroke-width="1.6"/>
+              <g class="held-penguin" transform="translate(629 398) rotate(-8) scale(.87)"><use href="#penguin-symbol"/></g>
+              <path d="M694 329c-22 2-21 25-18 43l-32 30 17 27c35-14 64-41 62-59l-4-24" fill="url(#hoodie)"/>
+              <path d="m649 400-17-5c-8-1-13 7-8 15l17 11 13-1" fill="#dfb9aa"/>
+              <path d="m650 404 13 21m40-77 3 18" stroke="#5b576a" stroke-width="1.6" fill="none"/>
+            </g>
+            <g id="gift-penguin" class="gift-penguin" transform="translate(483 471)"><g class="penguin-bob"><use href="#penguin-symbol"/></g></g>
+            <g class="little-heart" transform="translate(487 405)" fill="#dfacc0"><path d="M0 6C-23-8-12-20 0-11 12-20 23-8 0 6Z"/></g>
+            <g id="garden" aria-hidden="true"></g>
+            <g id="fireflies" aria-hidden="true"></g>
+          </svg>
+          <div class="scene-caption"><span class="caption-line"></span><span id="scene-caption">incluso los días grises merecen compañía</span><span class="caption-line"></span></div>
+        </div>
+      </section>
+
+      <div class="below-story">
+        <button class="text-button" id="restart-button" type="button" disabled><span aria-hidden="true">↺</span> Volver a empezar</button>
+      </div>
+    </main>
+
+    <footer class="footer"><span>Hecho de pequeños gestos.</span><div><button class="text-button" id="inspiration-button" type="button">La inspiración</button><span aria-hidden="true"></span><button class="text-button" id="edit-button" type="button"></button></div></footer>
+  </div>
+
+  <dialog id="letter-dialog" class="letter-dialog">
+    <button class="close-button" data-close type="button" aria-label="Cerrar carta">×</button>
+    <div class="letter-paper">
+      <div class="letter-flower" aria-hidden="true"></div>
+      <p class="eyebrow"></p>
+      <h2 id="letter-to">Para ti.</h2>
+      <div class="letter-body" id="letter-message"></div>
+      <p class="letter-sign" id="letter-from">Con cariño, alguien que se queda.</p>
+      <span class="letter-heart" aria-hidden="true">♡</span>
+    </div>
+    <button class="letter-download" id="download-button" type="button">Guardar mi carta <span aria-hidden="true">↓</span></button>
+  </dialog>
+
+  <dialog id="edit-dialog" class="edit-dialog">
+    <button class="close-button" data-close type="button" aria-label="Cerrar personalización">×</button>
+    <p class="eyebrow">DALE TU TOQUE</p><h2>Hazla un poquito más tuya.</h2>
+    <p class="dialog-description">Estos cambios se guardan en este navegador. Para compartir tu versión, edita también <code>config.js</code> en la carpeta del proyecto.</p>
+    <form id="dedication-form">
+      <label for="recipient">¿Para quién es?</label><input id="recipient" name="recipient" maxlength="60" placeholder="Para ti." required>
+      <label for="message">Tu mensaje</label><textarea id="message" name="message" rows="6" maxlength="1800" required></textarea>
+      <label for="sender">Tu firma</label><input id="sender" name="sender" maxlength="100" placeholder="Con cariño, alguien que se queda." required>
+      <button class="primary-button" type="submit">Guardar dedicatoria <span aria-hidden="true">♡</span></button>
+    </form>
+    <button class="text-button" id="reset-dedication-button" type="button">Restaurar el texto de config.js</button>
+    <p id="save-status" class="save-status" role="status"></p>
+  </dialog>
+
+  <dialog id="inspiration-dialog" class="inspiration-dialog"><button class="close-button" data-close type="button" aria-label="Cerrar inspiración">×</button><img src="assets/inspiracion.png" alt="Imagen de referencia: una joven dentro de una esfera de espinas y un chico que se acerca con un pingüino."><div><p class="eyebrow">DONDE EMPEZÓ TODO</p><h2>De una imagen a un pequeño gesto.</h2><p>Una interpretación animada de la imagen que inspiró esta historia. Acompañar, sin forzar. Estar, sin apresurar.</p></div></dialog>
+  <p id="toast" class="toast" role="status"></p>
+  <noscript><div class="noscript">Activa JavaScript en tu navegador para recorrer la historia.</div></noscript>
+</body>
+</html>

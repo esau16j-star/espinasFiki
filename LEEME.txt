@@ -1,0 +1,25 @@
+A TU RITMO
+Una pequena historia interactiva inspirada en tu imagen.
+
+COMO ABRIRLA
+1. Extrae TODO el ZIP (en Windows: clic derecho > Extraer todo).
+2. Abre la carpeta "a-tu-ritmo".
+3. Haz doble clic en "index.html". Se abrira en tu navegador.
+4. Pulsa los botones para recorrer los cuatro gestos y abrir la carta.
+
+No necesitas instalar programas, abrir una terminal ni tener Internet.
+Conserva juntos los archivos y la carpeta assets.
+
+COMO PERSONALIZARLA
+- Puedes probar tu dedicatoria desde el boton "Personalizar dedicatoria".
+  Ese cambio solo queda guardado en tu navegador.
+- Para enviarla ya personalizada, abre "config.js" con Bloc de notas
+  o Visual Studio Code y cambia el destinatario, mensaje y firma.
+  Guarda el archivo y comprime otra vez la carpeta completa.
+- Si habias personalizado la carta en el navegador, usa el boton
+  "Restaurar el texto de config.js" para ver los cambios de ese archivo.
+
+El sonido es opcional y viene apagado. Se activa con el boton superior.
+"Guardar mi carta" descarga el texto de la carta como archivo .txt.
+
+Consulta README.md para conocer la estructura y modificar el diseno.
